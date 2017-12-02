@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1508685804 source:c:\users\kamil\desktop\politechnika_c++\zad18\main.cpp
+	<iostream>
+
+1512208707 source:c:\users\kamil\desktop\politechnika_cpp\lista_1\zad18\main.cpp
+	<cstdlib>
+	<iostream>
+

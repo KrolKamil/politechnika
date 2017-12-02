@@ -1,0 +1,10 @@
+# depslib dependency file v1.0
+1508429222 source:c:\users\kamil\desktop\politechnika_c++\zad19\main.cpp
+	<iostream>
+	<string>
+
+1512213006 source:c:\users\kamil\desktop\politechnika_cpp\lista_1\zad19\main.cpp
+	<iostream>
+	<string>
+	<cstdlib>
+

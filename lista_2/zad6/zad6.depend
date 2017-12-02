@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1509533331 source:c:\users\kamil\desktop\politechnika_c++\lista_2\zad6\main.cpp
+	<iostream>
+
+1512216766 source:c:\users\kamil\desktop\politechnika_cpp\lista_2\zad6\main.cpp
+	<iostream>
+	<string>
+
