@@ -4,28 +4,26 @@ using namespace std;
 
 int wymiar;
 
-// program "najlepiej" dziala do wymiaru 3x3
-
 int main()
 {
     cout<<"Podaj wymiar tabliczy do wyswietlenia: ";
 
     cin>>wymiar;
-    cout<<"  ";
+    cout<<"\t";
 
     for(int i=1; i<=wymiar; i++)
     {
-        cout<<i<<" ";
+        cout<<i<<"\t";
     }
 
     cout<<endl;
 
     for(int i=1; i<=wymiar; i++)
     {
-        cout<<i<<" ";
+        cout<<i<<"\t";
         for(int j=1; j<=wymiar; j++)
         {
-            cout<<i * j<<" ";
+            cout<<i * j<<"\t";
         }
 
         cout<<endl;

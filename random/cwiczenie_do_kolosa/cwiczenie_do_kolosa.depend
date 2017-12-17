@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1512840296 source:c:\users\kamil\desktop\politechnika\politechnika_cpp\random\cwiczenie_do_kolosa\main.cpp
+	<iostream>
+	<windows.h>
+
