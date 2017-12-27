@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1514065891 source:c:\users\kamil\desktop\politechnika\politechnika_cpp\lista_3\zad11\main.cpp
+	<iostream>
+	<cstdlib>
+	<string>
+

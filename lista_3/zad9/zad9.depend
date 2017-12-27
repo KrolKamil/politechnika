@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1514063092 source:c:\users\kamil\desktop\politechnika\politechnika_cpp\lista_3\zad9\main.cpp
+	<iostream>
+	<ctime>
+	<cstdlib>
+	<windows.h>
+
