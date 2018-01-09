@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1515536373 source:c:\users\kamil\desktop\politechnika\projekt\main.cpp
+	<iostream>
+	<fstream>
+	<string>
+
