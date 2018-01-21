@@ -1,0 +1,254 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[      8559,        245]
+NotebookOptionsPosition[      7817,        218]
+NotebookOutlinePosition[      8161,        233]
+CellTagsIndexPosition[      8118,        230]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[{
+ FormBox[
+  RowBox[{
+   RowBox[{
+    RowBox[{"ClearAll", "[", "\"\<Global`*\>\"", "]"}], ";"}], 
+   "\[IndentingNewLine]"}], TraditionalForm], "\[IndentingNewLine]", 
+ FormBox[
+  RowBox[{
+   RowBox[{
+    RowBox[{"G", " ", "=", " ", 
+     RowBox[{"6.67", " ", "*", " ", 
+      RowBox[{"10", "^", 
+       RowBox[{"-", "11"}]}]}]}], ";"}], "\[IndentingNewLine]"}], 
+  TraditionalForm], "\[IndentingNewLine]", 
+ FormBox[
+  RowBox[{
+   RowBox[{
+    RowBox[{"Mz", " ", "=", " ", 
+     RowBox[{"5.96", " ", "*", " ", 
+      RowBox[{"10", "^", "24"}]}]}], ";"}], "\[IndentingNewLine]"}], 
+  TraditionalForm], "\[IndentingNewLine]", 
+ FormBox[
+  RowBox[{
+   RowBox[{
+    RowBox[{"m", "=", "1500"}], ";"}], "\[IndentingNewLine]"}], 
+  TraditionalForm], "\[IndentingNewLine]", 
+ FormBox[
+  RowBox[{
+   RowBox[{
+    RowBox[{"FG", " ", "=", " ", 
+     RowBox[{"G", " ", "*", " ", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{"m", "*", "Mz"}], ")"}], "/", 
+       RowBox[{"R", "^", "2"}]}]}]}], ";"}], "\[IndentingNewLine]"}], 
+  TraditionalForm], "\[IndentingNewLine]", 
+ FormBox[
+  RowBox[{
+   RowBox[{
+    RowBox[{"Fod", " ", "=", " ", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{"m", " ", "*", " ", 
+        RowBox[{"v", "^", "2"}]}], ")"}], " ", "/", "R"}]}], ";"}], 
+   "\[IndentingNewLine]"}], TraditionalForm], "\[IndentingNewLine]", 
+ FormBox[
+  RowBox[{
+   RowBox[{
+    RowBox[{"Ek", " ", "=", " ", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{"m", " ", "*", " ", 
+        RowBox[{"v", "^", "2"}]}], ")"}], " ", "/", " ", "2"}]}], ";"}], 
+   "\[IndentingNewLine]"}], TraditionalForm], "\[IndentingNewLine]", 
+ FormBox[
+  RowBox[{
+   RowBox[{"EpR", " ", "=", " ", 
+    RowBox[{
+     RowBox[{"-", "G"}], " ", "*", " ", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{"m", " ", "*", " ", "Mz"}], ")"}], " ", "/", " ", "R"}]}]}], 
+   ";"}], TraditionalForm]}], "Input",
+ CellChangeTimes->{{3.725546988978327*^9, 3.725547091992875*^9}, {
+  3.725549316251527*^9, 3.725549316498305*^9}, {3.7255494526787434`*^9, 
+  3.725549470903157*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"r1", " ", "=", " ", 
+    RowBox[{"Solve", "[", 
+     RowBox[{
+      RowBox[{"Fod", "==", "FG"}], ",", "v"}], "]"}]}], ";"}]}]], "Input",
+ CellChangeTimes->{{3.7255472709966927`*^9, 3.7255472871348977`*^9}, {
+   3.725549378726676*^9, 3.7255493871131916`*^9}, 3.725549480838213*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{
+  3.725547289395366*^9, 3.725548948076376*^9, 3.725549018622897*^9, {
+   3.7255490540421658`*^9, 3.7255491167464266`*^9}, {3.7255492849979725`*^9, 
+   3.7255493479892797`*^9}, {3.725549383080614*^9, 3.7255493888150063`*^9}, {
+   3.7255494413620014`*^9, 3.725549481705432*^9}}]
+}, Open  ]],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.7255491968478794`*^9, 3.7255491968648305`*^9}}],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{
+    RowBox[{"Ec", "[", "R_", "]"}], "=", 
+    RowBox[{
+     RowBox[{"Ek", "+", "EpR"}], "/.", 
+     RowBox[{"r1", "[", 
+      RowBox[{"[", 
+       RowBox[{"2", ",", "1"}], "]"}], "]"}]}]}], ";"}], 
+  TraditionalForm]], "Input"],
+
+Cell[BoxData[
+ FormBox["", TraditionalForm]], "Input",
+ CellChangeTimes->{{3.7255489367830644`*^9, 3.7255489446683426`*^9}, {
+   3.7255490400421944`*^9, 3.7255490503172693`*^9}, {3.7255491004519124`*^9, 
+   3.7255491011622396`*^9}, 3.7255491891752334`*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Plot", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Ec", "[", 
+     RowBox[{"R", "*", 
+      RowBox[{"10", "^", "3"}]}], "]"}], "/", 
+    RowBox[{"10", "^", "12"}]}], ",", " ", 
+   RowBox[{"{", 
+    RowBox[{"R", ",", "6500", ",", "40000"}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"AxesLabel", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"\"\<R[km]\>\"", ",", "\"\<Ec[10^12J]\>\""}], "}"}]}]}], "]"}]], \
+"Input",
+ CellChangeTimes->{{3.725549195915205*^9, 3.7255492950127106`*^9}, 
+   3.7255494400370603`*^9}],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {}, 
+   {Hue[0.67, 0.6, 0.6], LineBox[CompressedData["
+1:eJwVkHk41Akcxse1LLVFpRolKbEJDUqbxVeSRK5E46hR2KeNyEq2xm8MORLl
+qMQg58hRUcJomq9rG0WORsY4yvipbGU7SWpZ+8f7vH993uf5vGsPh7gFyFIo
+FPp8/m/aus5NFH8e9NmvKdvALMXKD7eP7jrOA13X8YqysFLUa8zkJkfywKfJ
+3sP0aClq+vpprUzhQYHxSybDoxQXZH5eYlzLgyWWxmpLaKU4rqzx7YhSA6iE
+NKRJXnEx7+NvD4WVDZAbpe9V5cVFlWaZwIuT90CsPNTSs68EBW3VI7cpfLDn
+zCp4OJRgWJefd58KH3Te6ChId5TgwFCTy2ptPsyuZFFVjEuw/AvbvMKJD3q+
+cq03F5fgHgNZVWEpH8YDXjgbdBVj4lVZ/iz9PkS8s74mcilG+RA5teMCAZi5
+PhHvCShCp+9WV3rbBKB3Z9v++weLMOsck2ouEsBrTo6l6YEiNCye1FYaF8BH
+EdvGyKEIPSWvTApVEdzoatl0WhGW23Ts7/NHMLsuX3VmthD1kh85XlNohJEf
+TNz7OYXYxchIVaxshEhXsanGaAHKZLl1uHxsgiDyceV0Tj7a9Ec2Wbu3gCYz
+7lK8JA/3vzYaz8hrhThm0FbXNzl4Ss6pLUX+AZxUHg/SXsZBoiLLh+IvhAZV
+bXUzIgs9NkRo91a0gdffVQ2n9K+ixXVegfOiR6CwMYPeKr2Ck99T3DZ5t4Ox
+eOyBYcdlTB+5WMfO74AmWxt6RO8ltGqffkrIdMKdr5Qdx55nID/xo87wni4g
+vMVcq58ysJhblvnBsxs8OxdqrLZMR9/u0KnNij1AMrqf+MakIXGE8k9+eQ8U
+vx12PzySirqnbZrHvJ8AJ8Jl8LhFKm6bcTKiy4iA4X2/hsq4iD3/LvyzoEYE
+wRJdS+6OCzjcRq7i+vfCTqst1FMWKej6L5s+qPQUOHU/u5vQk3HvXVHYWMNT
+8C46UP4+9DxW902s1/Trg1Dn9hWaJUmYiJq0pfJi6A/N0YwYP4cv9eWoz2rE
+0HP6mK217jm8IVPF6af3g5n911ViZiJ+81o8w10ggdS/NjiodCYg/0zCbRpf
+Ai2BStsq9BPwhYJQbuLQAOzOa5oRceLxypIGGlN1ED4rht+JU4zHW0knp83r
+BkGpOztZGBuH5g/tVtbTh0D2uqs4UikOnc8/VldSHobROUdRa+JZbK/VuJF4
+cxhW5em0Tqmfxa6A1VrDjGeQXTylplQQi+bEK/3Dis8hen66yiwWqQfb0orK
+n0Njv1F4bm8MNjIMfx8yGIEyTVOH1OAY1BUOebKiR6AlN8xqt2oMur0bM1kw
+MAKlNjymbTUbt56Z/vULTQqcZsfzXR5s7DQPTZ+JlUIvL+DONQU2bhRY970a
+ksLagk/6o1XRuP3kqcAJo1GQmQpeX+0fjfKp9etc2aPwPHz95sxV0ZgWtK8r
+TzIKm6qz5rYXslAU5SaU30RC3b2MT7ZUFj7q0KwJNyChd9GExYflLGzWeJM/
+ZkjCAPeWNGcZC6t4sadbaSRY2WltmVzMwuTJGoOzZiQ42RI/liuycGfw8kty
+NvN8eL3H+kkCa32GGLJeJKTV1057dRN4o+L63jBvEpYqoL1qJ4HFM+HbR31I
+aDfkfRC2E5h+deHS5kMk0Gq27NoqJDCk11LIDiBBSjGZUxcQqOdYYCBzgoRJ
+/eD88QoC13CCqSfCSIBtKZ7FZQSqv/5FUfoHCaNaQf6MUgLlE5+MNEaQoJJC
+ZUkKCZS2yF2KZpLQZqJb25VFYL9ad/T7KBJ2HdRfeSGTwG6/nGAGiwQ7Wc8e
+x8sECuZM7SCGBPcQCbSnEnjXSca0KpaEyELl6aQLBFbmPtbSipv3X7dC3iGZ
+wKK3WQtT4+f/NH3nr5JEYLZ54MxcAgnL1kRROxII/A+tO9h5
+     "]]}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->True,
+  AxesLabel->{
+    FormBox["\"R[km]\"", TraditionalForm], 
+    FormBox["\"Ec[10^12J]\"", TraditionalForm]},
+  AxesOrigin->{10000., -0.046},
+  Method->{},
+  PlotRange->{{6500, 40000}, {-0.04586907209854345, -0.007453725127397855}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{
+    Scaled[0.02], 
+    Scaled[0.02]}]], "Output",
+ CellChangeTimes->{{3.7255494608838797`*^9, 3.7255494817969055`*^9}}]
+}, Open  ]],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.7255494594779587`*^9, 3.7255494595235443`*^9}}],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.725549346411066*^9, 3.7255493464561596`*^9}}],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.7255491940890617`*^9, 3.7255491950901794`*^9}}]
+},
+WindowSize->{707, 867},
+WindowMargins->{{49, Automatic}, {Automatic, 62}},
+FrontEndVersion->"9.0 for Microsoft Windows (64-bit) (January 25, 2013)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[557, 20, 2063, 65, 297, "Input"],
+Cell[CellGroupData[{
+Cell[2645, 89, 350, 8, 52, "Input"],
+Cell[2998, 99, 778, 15, 39, "Message"]
+}, Open  ]],
+Cell[3791, 117, 96, 1, 31, InheritFromParent],
+Cell[3890, 120, 274, 10, 30, "Input"],
+Cell[4167, 132, 256, 4, 30, "Input"],
+Cell[CellGroupData[{
+Cell[4448, 140, 540, 16, 52, InheritFromParent],
+Cell[4991, 158, 2515, 48, 246, "Output"]
+}, Open  ]],
+Cell[7521, 209, 96, 1, 31, InheritFromParent],
+Cell[7620, 212, 94, 1, 31, InheritFromParent],
+Cell[7717, 215, 96, 1, 31, InheritFromParent]
+}
+]
+*)
+
+(* End of internal cache information *)
