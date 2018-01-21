@@ -1,0 +1,4 @@
+\beamer@sectionintoc {1}{Wprowadzenie}{3}{0}{1}
+\beamer@sectionintoc {2}{Szyfr Cezara}{7}{0}{2}
+\beamer@sectionintoc {3}{Algorytm Szyfrowania RSA}{13}{0}{3}
+\beamer@sectionintoc {4}{MD5}{23}{0}{4}

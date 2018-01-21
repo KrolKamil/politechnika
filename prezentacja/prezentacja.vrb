@@ -1,0 +1,8 @@
+\frametitle{Podstawowe Informacje}
+\textbf{RSA} – jeden z pierwszych i obecnie najpopularniejszych asymetrycznych algorytmów kryptograficznych z kluczem publicznym, zaprojektowany w 1977 przez Rona Rivesta, Adi Shamira oraz Leonarda Adlemana.
+
+       Pierwszy algorytm, który może być stosowany zarówno do szyfrowania jak i do podpisów cyfrowych.
+
+       Bezpieczeństwo szyfrowania opiera się na trudności faktoryzacji dużych liczb złożonych.
+
+        Jego nazwa pochodzi od pierwszych liter nazwisk jego twórców

@@ -4,12 +4,14 @@
 
 using namespace std;
 
+//zmienne plikowe
 fstream plik;
 fstream plik_szyfr;
 
+//funkcje szyfrujace
 string zamiana_systemu(char znak, int system)
 {
-    string wynik = "";
+    string slowo = "";
     string szyfr = "";
 
     int reszta;
@@ -18,18 +20,16 @@ string zamiana_systemu(char znak, int system)
     while(znak!=0)
     {
         reszta = znak % system;
-        wynik = wynik + char(reszta + 48);
+        slowo = slowo + char(reszta + 48);
         znak = znak / system;
     }
 
-    dl_szyfru  = wynik.length();
+    dl_szyfru  = slowo.length();
 
     for(int i=dl_szyfru-1; i>=0; i--)
     {
-        szyfr = szyfr + wynik[i];
+        szyfr = szyfr + slowo[i];
     }
-
-    szyfr = szyfr;
 
     return szyfr;
 }
@@ -55,14 +55,9 @@ void szyfrowanie(string dane)
     int dlugosc_danych;
     dane = usuniecie_spacji(dane);
     dlugosc_danych = dane.length();
-    cout<<dane;
 
     for(int i=0; i<dlugosc_danych; i++)
     {
-        if(dane[i] == ' ')
-        {
-            continue;
-        }
         if(i>0)
         {
             system = (dane[i-1] % 8) + 2;
@@ -71,7 +66,7 @@ void szyfrowanie(string dane)
     }
 }
 
-//------------odszyfrowywanie-----------
+//funkcje odszyfrujace
 
 char odszyfrowanie_znaku(string znak, int system)
 {
@@ -122,6 +117,7 @@ void odszyfrowywanie(string dane)
 
 int main()
 {
+    //szyfrowanie
     string wiersz_danych;
 
     plik.open("tekst.txt", ios::in);
@@ -136,7 +132,7 @@ int main()
     plik_szyfr.clear();
     plik_szyfr.close();
 
-    //-------odszyfrowanie---------
+    //odszyfrowanie
 
     plik_szyfr.open("szyfr.txt", ios::in);
     plik.open("odszyfrowane.txt", ios::out);
@@ -147,5 +143,5 @@ int main()
 
     plik.close();
     plik_szyfr.close();
-
+    cout<<"Program dokonal przeksztalcen.";
 }

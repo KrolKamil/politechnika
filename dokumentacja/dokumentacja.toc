@@ -1,0 +1,7 @@
+\contentsline {section}{\numberline {1}Opis programu}{1}
+\contentsline {section}{\numberline {2}Instrukcja Obs\IeC {\l }ugi}{2}
+\contentsline {section}{\numberline {3}Techniczny Opis Programu}{3}
+\contentsline {subsection}{\numberline {3.1}Biblioteki}{3}
+\contentsline {subsection}{\numberline {3.2}Funkcja main()}{3}
+\contentsline {subsection}{\numberline {3.3}Funkcje pomocnicze}{3}
+\contentsline {section}{\numberline {4}Szczeg\IeC {\'o}\IeC {\l }y techniczne}{4}

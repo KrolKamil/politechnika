@@ -1,0 +1,327 @@
+\documentclass[10pt]{beamer}
+
+\usepackage{hyperref}
+
+\usepackage{caption}
+
+\usepackage{polski}
+\usepackage[utf8]{inputenc}
+
+\usetheme{metropolis}
+\usepackage{appendixnumberbeamer}
+
+\usepackage{booktabs}
+\usepackage[scale=2]{ccicons}
+
+\usepackage{pgfplots}
+\usepgfplotslibrary{dateplot}
+
+\usepackage{xspace}
+\newcommand{\themename}{\textbf{\textsc{metropolis}}\xspace}
+
+\title{Podstawy Kryptologii}
+\subtitle{}
+\date{\today}
+\author{Kamil Król}
+\institute{Politechnika Śląska, Wydział Matematyki Stosowanej}
+% \titlegraphic{\hfill\includegraphics[height=1.5cm]{logo.pdf}}
+
+\begin{document}
+
+\maketitle
+
+\begin{frame}{Spis treści}
+  \setbeamertemplate{section in toc}[sections numbered]
+  \tableofcontents[hideallsubsections]
+\end{frame}
+
+\section{Wprowadzenie}
+
+\begin{frame}[fragile]{Kryptologia}
+ 
+Kryptologia – dziedzina wiedzy o przekazywaniu informacji w sposób zabezpieczony przed niepowołanym dostępem.\\
+Współcześnie kryptologia jest uznawana za gałąź zarówno matematyki, jak i informatyki.\\
+
+Kryptologię dzieli się na:\\
+
+\begin{itemize}
+    \item kryptografię - czyli gałąź wiedzy o utajnianiu wiadomości;
+    
+    \item kryptoanalizę - czyli gałąź wiedzy o przełamywaniu zabezpieczeń
+  \end{itemize}
+  
+\end{frame}
+\begin{frame}[fragile]{Terminologia}
+  Istotnym elementem technik kryptograficznych jest proces zamiany tekstu jawnego w szyfrogram (inaczej kryptogram); proces ten nazywany jest \textbf{szyfrowaniem}, a proces odwrotny, czyli zamiany tekstu zaszyfrowanego na powrót w możliwy do odczytania, \textbf{deszyfrowaniem}.
+  
+  
+  Przez \textbf{szyfr} rozumiana jest para algorytmów służących do przeprowadzenia obu procesów. Wraz z algorytmami dodatkowo używa się \textbf{kluczy}, czyli pewnych niezbędnych parametrów, od których zależy wynik obu procesów. Innymi słowy: znajomość algorytmu i szyfrogramu bez dostępu do klucza nie pozwoli na odtworzenie tekstu jawnego.
+\end{frame}
+\begin{frame}[fragile]{Terminologia}
+  Kryptografia nie zajmuje się jednak wyłącznie szyfrowaniem i deszyfrowaniem tekstów. Po pierwsze, dane przekazywane są najczęściej w postaci binarnej, co umożliwia również obróbkę takich danych jak dźwięk czy obraz; po drugie, równie ważne jak zapewnianie poufności danych jest ich \textbf{integralność} (niezmienność danych w czasie procesu), \textbf{uwierzytelnianie} (pewność co do ich pochodzenia) oraz \textbf{niezaprzeczalność} (nadawca nie może wyprzeć się faktu, że był nadawcą wiadomości).
+  
+  
+  Ważnym terminem używanym w kryptografii jest \textbf{kryptosystem}, a więc system obejmujący zastosowane w danym wypadku szyfry, metody generowania kluczy, urządzenia wraz z oprogramowaniem oraz procedury ich użycia. Istotnym aspektem kryptosystemu jest jego bezpieczeństwo – odporność na ataki kryptologiczne.
+\end{frame}
+
+\section{Szyfr Cezara}
+
+\begin{frame}{Opis szyfru}
+	\textbf{Szyfr Cezara} (zwany też szyfrem przesuwającym, kodem Cezara lub przesunięciem Cezariańskim) – jedna z najprostszych technik szyfrowania.
+	
+	 Jest to rodzaj szyfru podstawieniowego, w którym każda litera tekstu jawnego (niezaszyfrowanego) zastępowana jest inną, oddaloną od niej o stałą liczbę pozycji w alfabecie, literą (szyfr monoalfabetyczny), przy czym kierunek zamiany musi być zachowany.
+	 
+	  Nie rozróżnia się przy tym liter dużych i małych. Nazwa szyfru pochodzi od Juliusza Cezara, który prawdopodobnie używał tej techniki do komunikacji ze swymi przyjaciółmi.
+\end{frame}
+
+
+\begin{frame}{Przykład}
+	Sposób szyfrowania może być przedstawiony za pomocą diagramu dwóch ciągów z odpowiadającymi sobie kolejnymi literami alfabetu. Te same litery drugiego ciągu są przesunięte względem ciągu pierwszego o określoną liczbę pozycji, zwaną parametrem przesunięcia (tutaj 3) i pełniącą funkcję klucza szyfru:
+
+\metroset{block=fill}
+\begin{block}{Dane:  AĄBCĆDEĘFGHIJKLŁMNŃOÓPRSŚTUWYZŹŻ}
+        \textbf{Szyfr:  CĆDEĘFGHIJKLŁMNŃOÓPRSŚTUWYZŹŻAĄB}
+      \end{block}
+\end{frame}
+
+\begin{frame}{Przykład}
+	Należy przy tym zauważyć, że ostatnim literom alfabetu w górnym ciągu odpowiadają początkowe litery w ciągu dolnym (alfabet został „zawinięty”).
+	
+	 Chcąc zaszyfrować wiadomość, należy każdą jej literę zastąpić odpowiednikiem z szyfru (wiadomość w przykładzie jest zapisana wersalikami, aczkolwiek szyfr jest niewrażliwy na wielkość liter):
+
+
+\metroset{block=fill}
+\begin{block}{Tekst jawny: MĘŻNY BĄDŹ, CHROŃ PUŁK TWÓJ}
+      \textbf{Tekst szyfr: OHBÓŻ DĆFĄ, EKTRP ŚZŃM YŹSŁ}
+      \end{block}
+\end{frame}
+
+
+
+
+\begin{frame}{Ujęcie matematyczne}
+	Operację szyfrowania i deszyfrowania można wyrazić w języku arytmetyki modularnej.
+	
+	 W tym celu wystarczy każdej literze alfabetu jednoznacznie przypisać jej numer według schematu A-0, Ą-1, B-2, …, Ż-31.
+	
+	 Wygodnie jest też przyjąć, że klucz \textit{n} jest pewną liczbą z zakresu 0...31 (jest to numer zaszyfrowanej litery A).
+\end{frame}
+
+\begin{frame}{Ujęcie matematyczne}
+
+	\textbf{Szyfrowanie i Deszyfrowanie:}
+	
+	x - numer litery tekstu jawnego w alfabecie
+	
+	n - liczba pozycji do przesuniecia litery tekstu jawnego
+	
+	s - zaszyfrowany znak
+	
+	Szyfrowanie:
+	
+	$s = x + (n (mod 32))$
+	
+	Deszyfrowanie:
+	
+	$x = s - (n (mod 32))$
+	
+	
+\end{frame}
+
+\section{Algorytm Szyfrowania RSA}
+
+\begin{frame}[fragile]{Podstawowe Informacje}
+      \textbf{RSA} – jeden z pierwszych i obecnie najpopularniejszych asymetrycznych algorytmów kryptograficznych z kluczem publicznym, zaprojektowany w 1977 przez Rona Rivesta, Adi Shamira oraz Leonarda Adlemana.
+      
+       Pierwszy algorytm, który może być stosowany zarówno do szyfrowania jak i do podpisów cyfrowych.
+       
+       Bezpieczeństwo szyfrowania opiera się na trudności faktoryzacji dużych liczb złożonych.
+       
+        Jego nazwa pochodzi od pierwszych liter nazwisk jego twórców
+\end{frame}
+
+\begin{frame}{Kryptosystem RSA}
+  Aytmetyka modulo i właściwości liczb pierwszych są podstawą szyfru RSA - techniki szyfrowania asymetrycznego z kluczem publicznym.
+  
+  Proces szyfrowania wyglądają następująco: Uzytkownik X wybiera dwie dowolne, duże liczby pierwsze \textit{p} i \textit{q} (im są większe, tym lepiej, gdyż od ich wielkosci zalezy bezpieczeństwo szyfru). Aby uprościc obliczenia, w poniższym przykładzie wybrane zostały liczby 11 i 17.
+  
+  Następnie X oblicza liczę \textit{n} będącą iloczynem tych dwóch liczb (\textit{n} = 187).
+  Trzeba jeszcze wybrać liczbę \textit{e}, która wspólnie z iloczynem n stanowić będzie klucz szyfrujacy.
+  
+   Liczby \textit{e} oraz (\textit{p}-1)*(\textit{q}-1) powinnym być względnie pierwsze. Załóżmy, że \textit{e} = 7.
+
+\end{frame}
+
+\begin{frame}{Kryptosystem RSA}
+	Obie te liczby (\textit{n} i \textit{e}) podawane są do wiadomości wszystkkich, którzy chcieliby wysłac zaszyfrowaną wiadomość do danego użytkownika.
+     Aby to zrobić, należy w pierwszej kolejności przekształcić wysłaną wiadomość do postali liczbowej.
+
+	Stosowany jest tu standard ASCII. Niech przesłanym znakiem będzie litera A. W kodzie ASCII symbolowi temu odpowiada kombinacja 01000001. Po przeliczeniu na system dziesiętny przyjmuje ona wartośc 65.
+	
+  Tekst jawny wynosi więc \textit{J} = 65.	
+	
+\end{frame}
+
+\begin{frame}{Kryptosystem RSA}
+	Wartość tekstu tajnego obliczana jest według wzoru:
+	
+	$S=J^e(mod\textit{n})$
+	
+	a zatem
+	
+	$S = 65^7(mod187)=[65^4(mod187)*65^2(mod187)*65(mod187)]mod187$
+	
+	W celu usprawnienia obliczeń korzysta się tu z własności potęgowania:
+	
+	$a^{n+m} = a^n * a^m$
+	
+	oraz z własności arytmetyki modulo:
+	
+	$(a*b)modn = ((a mod n)*(b mod n))mod n$
+	
+	czyli:
+	
+	$[17850625(mod187)*4225(mod187)*65]mod187 =
+	(166*111*65)mod187=[7215(mod187)*166(mod187)]mod187=
+	109*166(mod187)=142$
+	
+	Wiadomość po zaszyfrowaniu ma zatem postać \textit{S} = 142.
+\end{frame}
+
+\begin{frame}{Kryptosystem RSA}
+  Warto zauważyć, że dla kogoś, kto posiada tylko publiczne klucze, odwrócenie działania funkcji jest niemożliwe.
+  
+   Nawet jeśli zna on algorytm szyfrowania, nie jest w stanie powiedzieć, jakie były dane wejściowe, ponieważ 142 = 329(mod187) lub 471(mod187) lub 163(mod187) itd. Dopiero wartość $65^7$(mod187) jest poprawna.
+   
+    Aby sprawdzić całą przestrzeń kluczy i dojść aż do tej wartości w rozsądnym czasie potrzeba ogromnej mocy obliczeniowej.
+\end{frame}
+\begin{frame}{Kryptosystem RSA}
+  Aby odwrócić działanie funkcji szyfrującej, należy uruchomic jej "zapadkę", czyli klucz deszyfrujący. Użytkownik X oblicza go ze wzoru:
+  
+  $ke=1mod(p-1)(q-1)$
+  
+  Tak więc:
+  
+  $7k = 10*16+1=161$
+  
+  stąd :
+  
+  $k=161/7=23$
+  
+  Teraz użytkownik X używa swojego tajnego klucza, aby odczytać wiadomość.Dekryptaż odbywa się według poniższego wzoru:
+  
+  $j=S^k(modn)$
+  
+\end{frame}
+
+\begin{frame}{Kryptosystem RSA}
+  Wstępne obliczenia wyglądają nastepująco:
+  
+  $J=142^{23}(mod187)=[142^{16}(mod187)*142^4(mod187)*142^2(mod187)*
+  142^1(mod187)]mod(187)$
+  
+  
+  $142^1(mod187)=142$
+  
+  $142^2(mod187)=155$
+  
+  $142^4mod187=(142^2mod187)^2mod187=155^2mod187=89$
+  
+  $142^8mod187=(142^4mod187)^2mod187=89^2mod187=67$
+  
+  $142^{16}mod187=(142^8mod187)^2mod187=67^2mod187=1$
+\end{frame}
+
+\begin{frame}{Kryptosystem RSA}
+  Ósma potęga liczby 142 nie wystepuje we wzorze obliczającym wartość tekstu jawnego, jej wyznaczenie ułatwia jednak obliczenie wartości $142^{16}mod187$.
+  
+   Wstawiamy teraz obliczone reszty modulo kolejnych potęg do wzoru głównego:
+  
+  $142^{23}(mod187)=(1*89*155*142)mod187=[(89*155mod187)*$
+  
+  
+  $(142mod187)]mod187=(144*142)mod187=20448mod187=65$
+\end{frame}
+
+
+\begin{frame}{Tabelka}
+  \begin{table}
+   \caption*{\textbf{\Large Długość i zastosowanie kluczy szyfrujących}}
+    \begin{tabular}{@{} lr @{}}
+      \toprule
+      Dłygośc klucza & Zastosnowanie\\
+      \midrule
+      $512b < 2048b$  & brak\\
+      $2048b < 4096b$& dla cywilów\\
+      $4096b+$ & wojskowe\\
+      \bottomrule
+    \end{tabular}
+  \end{table}
+\end{frame}
+
+\section{MD5}
+
+\begin{frame}{Podstawowe informacje}
+  MD5 (z ang. Message-Digest algorithm 5) – algorytm kryptograficzny, opracowany przez Rona Rivesta (współtwórcę RSA) w 1991 roku, będący popularną kryptograficzna funkcją skrótu, która z ciągu danych o dowolnej długości generuje 128-bitowy skrót.
+  
+  Funkcja skrótu, funkcja mieszająca lub funkcja haszująca – funkcja przyporządkowująca dowolnie dużej liczbie krótką, zawsze posiadającą stały rozmiar, niespecyficzną, quasi-losową wartość, tzw. skrót nieodwracalny.
+
+W informatyce funkcje skrótu pozwalają na ustalenie krótkich i łatwych do weryfikacji sygnatur dla dowolnie dużych zbiorów danych.
+\end{frame}
+
+\begin{frame}{Przykład}
+  Skrót obliczony dla krótkiego tekstu:
+  
+	\metroset{block=fill}
+	\begin{block}{MD5("Ala ma kota") = 91162629d258a876ee994e9233b2ad87}
+    \end{block}
+    
+    Nawet niewielka zmiana w tekście (w tym przypadku zamiana a na y) powoduje (z 		bardzo dużym prawdopodobieństwem) powstanie zupełnie innego skrótu MD5
+	
+	\metroset{block=fill}
+	\begin{block}{MD5("Ala ma koty") = 6a645004f620c691731b5a292c25d37f}
+    \end{block}
+\end{frame}
+
+\begin{frame}{Przykład}
+  	Dość powszechnym zastosowaniem MD5 jest generowanie skrótów wszelkiego rodzaju plików udostępnianych publicznie (najczęściej w Internecie), dzięki czemu osoba, która pobrała dany plik z sieci może od razu zweryfikować (generując skrót MD5 na swojej kopii i porównując wyniki) czy jest to ten sam plik, który został zamieszczony przez jego autora lub czy nie nastąpiły przekłamania podczas samego procesu pobierania danych.
+  	
+  	 Publikowana w takim przypadku wartość ma postać 32-znakowej liczby w zapisie szesnastkowym.
+
+\metroset{block=fill}
+	\begin{block}{Wynik MD5 dla archiwum "linux-2.6.10.tar.bz2" o wielkości 35 MB: cffcd2919d9c8ef793ce1ac07a440eda}
+    \end{block}
+
+\end{frame}
+
+\begin{frame}{Bibliografia}
+
+Witryny internetowe:
+
+\url{https://pl.wikipedia.org/wiki/Kryptologia}
+\href{https://pl.wikipedia.org/wiki/Kryptologia}{Kryptologia}
+
+\url{https://pl.wikipedia.org/wiki/Szyfr_Cezara}
+\href{https://pl.wikipedia.org/wiki/Szyfr_Cezara}{Szyfr Cezara}
+
+\url{https://pl.wikipedia.org/wiki/RSA_(kryptografia)}
+\href{https://pl.wikipedia.org/wiki/RSA_(kryptografia)}{RSA}
+
+\url{https://pl.wikipedia.org/wiki/MD5}
+\href{https://pl.wikipedia.org/wiki/MD5}{MD5}
+
+Literatura:
+
+Podstawy kryptografii. Wydanie III - Marcin Karbowski
+
+\end{frame}
+
+\begin{frame}[standout]
+	Dziękuję za uwagę
+\end{frame}
+
+\appendix
+
+
+
+\end{document}
