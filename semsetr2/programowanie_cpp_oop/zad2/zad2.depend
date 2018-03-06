@@ -1,5 +1,9 @@
 # depslib dependency file v1.0
-1519483867 source:c:\users\kamil\desktop\politechnika\politechnika\semsetr2\programowanie_cpp_oop\zad2\main.cpp
+1446667744 source:c:\users\kamil\desktop\politechnika\politechnika\semsetr2\programowanie_cpp_oop\zad2\main.cpp
 	<iostream>
-	<math.h>
+
+1520339160 source:c:\users\kamil\desktop\politechnika\politechnika\semsetr2\programowanie_cpp_oop\zad2\circle.cpp
+	"Circle.h"
+
+1520339160 c:\users\kamil\desktop\politechnika\politechnika\semsetr2\programowanie_cpp_oop\zad2\circle.h
 
