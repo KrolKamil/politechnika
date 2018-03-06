@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1520336376 source:c:\users\kamil\desktop\politechnika\politechnika\semsetr2\programowanie_cpp_oop\zad1\main.cpp
+	<iostream>
+	"Person.h"
+
+1520335445 c:\users\kamil\desktop\politechnika\politechnika\semsetr2\programowanie_cpp_oop\zad1\person.h
+	<iostream>
+
+1520336422 source:c:\users\kamil\desktop\politechnika\politechnika\semsetr2\programowanie_cpp_oop\zad1\person.cpp
+	"Person.h"
+	<iostream>
+	<string>
+
